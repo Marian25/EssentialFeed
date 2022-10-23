@@ -48,8 +48,8 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         let (sut, store) = makeSut(currentDate: { fixedCurrentDate })
         
         expect(sut, toCompleteWith: .success(feed.models), when: {
-            store.completeRetrieval(with: feed.local, timestamp: lessThanSevenDaysOldTimestamp)
-
+            store.completeRetrieval(with: feed.local,
+                                    timestamp: lessThanSevenDaysOldTimestamp)
         })
     }
     
@@ -60,8 +60,8 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         let (sut, store) = makeSut(currentDate: { fixedCurrentDate })
         
         expect(sut, toCompleteWith: .success([]), when: {
-            store.completeRetrieval(with: feed.local, timestamp: lessThanSevenDaysOldTimestamp)
-
+            store.completeRetrieval(with: feed.local,
+                                    timestamp: lessThanSevenDaysOldTimestamp)
         })
     }
     
@@ -72,9 +72,18 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         let (sut, store) = makeSut(currentDate: { fixedCurrentDate })
         
         expect(sut, toCompleteWith: .success([]), when: {
-            store.completeRetrieval(with: feed.local, timestamp: lessThanSevenDaysOldTimestamp)
-
+            store.completeRetrieval(with: feed.local,
+                                    timestamp: lessThanSevenDaysOldTimestamp)
         })
+    }
+    
+    func test_load_deletesCacheOnRetrievalError() {
+        let (sut, store) = makeSut()
+        
+        sut.load { _ in }
+        store.completeRetrieval(with: anyNSError())
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCachedFeed])
     }
     
     // MARK: - Helpers
