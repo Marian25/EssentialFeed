@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F090D25290A7F7F00EC4D86 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F090D24290A7F7F00EC4D86 /* CodableFeedStore.swift */; };
 		0F090D27290A9D6300EC4D86 /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F090D26290A9D6300EC4D86 /* FeedStoreSpecs.swift */; };
+		0F090D29290A9E0900EC4D86 /* XCTestCase+FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F090D28290A9E0900EC4D86 /* XCTestCase+FeedStoreSpecs.swift */; };
 		0F1DD766290A5F9F00D29D70 /* CodableFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1DD765290A5F9F00D29D70 /* CodableFeedStoreTests.swift */; };
 		0F2B9A212902E2F600D34A70 /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2B9A202902E2F600D34A70 /* CacheFeedUseCaseTests.swift */; };
 		0F44BC172904518300DFCC62 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F44BC162904518300DFCC62 /* LocalFeedLoader.swift */; };
@@ -58,6 +59,7 @@
 /* Begin PBXFileReference section */
 		0F090D24290A7F7F00EC4D86 /* CodableFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStore.swift; sourceTree = "<group>"; };
 		0F090D26290A9D6300EC4D86 /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
+		0F090D28290A9E0900EC4D86 /* XCTestCase+FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedStoreSpecs.swift"; sourceTree = "<group>"; };
 		0F1DD765290A5F9F00D29D70 /* CodableFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStoreTests.swift; sourceTree = "<group>"; };
 		0F2B9A202902E2F600D34A70 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		0F44BC162904518300DFCC62 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				0FA91309290568F8004DA76B /* ValidateFeedCacheUseCaseTests.swift */,
 				0F1DD765290A5F9F00D29D70 /* CodableFeedStoreTests.swift */,
 				0F090D26290A9D6300EC4D86 /* FeedStoreSpecs.swift */,
+				0F090D28290A9E0900EC4D86 /* XCTestCase+FeedStoreSpecs.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				0FA9130529053B64004DA76B /* LoadFeedFromCacheUseCaseTests.swift in Sources */,
 				0F090D27290A9D6300EC4D86 /* FeedStoreSpecs.swift in Sources */,
 				0F6F8C7428E97DCF00714028 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				0F090D29290A9E0900EC4D86 /* XCTestCase+FeedStoreSpecs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
