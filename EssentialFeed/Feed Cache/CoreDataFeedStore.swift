@@ -22,3 +22,16 @@ public final class CoreDataFeedStore: FeedStore {
         
     }
 }
+
+private class ManagedCache: NSManagedObject {
+    @NSManaged var timestamp: Date
+    @NSManaged var feed: NSOrderedSet
+}
+
+private class ManagedFeedImage: NSManagedObject {
+    @NSManaged public var id: UUID
+    @NSManaged public var imageDescription: String?
+    @NSManaged public var location: String?
+    @NSManaged public var url: URL
+    @NSManaged public var cache: ManagedCache
+}
