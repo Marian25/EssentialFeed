@@ -19,10 +19,7 @@ public final class CoreDataFeedStore: FeedStore {
     public func retrieve(completion: @escaping RetrievalCompletion) {
         perform { context in
             do {
-                let request = ManagedCache.fetchRequest()
-                request.returnsObjectsAsFaults = false
-                
-                if let cache = try context.fetch(request).first {
+                if let cache = try ManagedCache.find(in: context) {
                     completion(.found(feed: cache.localFeed, timestamp: cache.timestamp))
                 } else {
                     completion(.empty)
@@ -103,6 +100,12 @@ private class ManagedCache: NSManagedObject {
             .map { $0.local }
     }
     
+    static func find(in context: NSManagedObjectContext) throws -> ManagedCache? {
+        let request = NSFetchRequest<ManagedCache>(entityName: entity().name!)
+        request.returnsObjectsAsFaults = false
+        return try context.fetch(request).first
+    }
+
     static func images(from localFeed: [LocalFeedImage], in context: NSManagedObjectContext) -> NSOrderedSet {
         NSOrderedSet(array: localFeed.map {
             let managedFeedImage = ManagedFeedImage(context: context)
