@@ -14,7 +14,9 @@ class ManagedFeedImage: NSManagedObject {
     @NSManaged public var location: String?
     @NSManaged public var url: URL
     @NSManaged public var cache: ManagedCache
-    
+}
+
+extension ManagedFeedImage {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<ManagedFeedImage> {
         return NSFetchRequest<ManagedFeedImage>(entityName: "ManagedFeedImage")
     }

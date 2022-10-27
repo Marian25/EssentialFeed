@@ -12,6 +12,9 @@ class ManagedCache: NSManagedObject {
     @NSManaged var timestamp: Date
     @NSManaged var feed: NSOrderedSet
     
+}
+
+extension ManagedCache {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<ManagedCache> {
         return NSFetchRequest<ManagedCache>(entityName: "ManagedCache")
     }
