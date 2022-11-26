@@ -415,4 +415,3 @@ private extension FeedImageCell {
         return feedImageView.image?.pngData()
     }
 }
-
