@@ -5,7 +5,7 @@
 //  Created by Marian Stanciulica on 26.11.2022.
 //
 
-import Foundation
+import XCTest
 import EssentialFeed
 import EssentialFeediOS
 
