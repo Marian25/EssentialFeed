@@ -8,10 +8,10 @@
 import XCTest
 import EssentialFeed
 
-struct FeedImageViewModel {
+struct FeedImageViewModel<Image> {
     let description: String?
     let location: String?
-    let image: Any?
+    let image: Image?
     let isLoading: Bool
     let shouldRetry: Bool
     
@@ -21,14 +21,18 @@ struct FeedImageViewModel {
 }
 
 protocol FeedImageView {
-    func display(_ viewModel: FeedImageViewModel)
+    associatedtype Image
+    
+    func display(_ viewModel: FeedImageViewModel<Image>)
 }
 
-final class FeedImagePresenter {
-    private let view: FeedImageView
+final class FeedImagePresenter<View: FeedImageView, Image> where View.Image == Image {
+    private let view: View
+    private let imageTransformer: (Data) -> Image?
 
-    init(view: FeedImageView) {
+    init(view: View, imageTransformer: @escaping (Data) -> Image?) {
         self.view = view
+        self.imageTransformer = imageTransformer
     }
     
     func didStartLoadingImageData(for model: FeedImage) {
@@ -50,7 +54,16 @@ final class FeedImagePresenter {
     private struct InvalidImageDataError: Error {}
     
     func didFinishLoadingImageData(with data: Data, for model: FeedImage) {
-        didFinishLoadingImageData(with: InvalidImageDataError(), for: model)
+        guard let image = imageTransformer(data) else {
+            didFinishLoadingImageData(with: InvalidImageDataError(), for: model)
+            return
+        }
+        
+        view.display(FeedImageViewModel(description: model.description,
+                                        location: model.location,
+                                        image: image,
+                                        isLoading: false,
+                                        shouldRetry: false))
     }
 }
 
@@ -91,7 +104,7 @@ final class FeedImagePresenterTests: XCTestCase {
     }
     
     func test_didFinishLoadingImageDataWithInvalidData_displaysShouldRetry() {
-        let (sut, view) = makeSUT()
+        let (sut, view) = makeSUT(imageTransformer: fail)
         let model = uniqueImage()
         let anyData = "any data".data(using: .utf8)!
         
@@ -105,20 +118,42 @@ final class FeedImagePresenterTests: XCTestCase {
         XCTAssertEqual(message?.shouldRetry, true)
     }
     
+    func test_didFinishLoadingImageDataWithValidData_displaysImage() {
+        let model = uniqueImage()
+        let anyData = "any data".data(using: .utf8)!
+        let transformedData = AnyImage()
+        let (sut, view) = makeSUT(imageTransformer: { _ in transformedData })
+        
+        sut.didFinishLoadingImageData(with: anyData, for: model)
+        
+        let message = view.messages.first
+        XCTAssertEqual(message?.description, model.description)
+        XCTAssertEqual(message?.location, model.location)
+        XCTAssertEqual(message?.image, transformedData)
+        XCTAssertEqual(message?.isLoading, false)
+        XCTAssertEqual(message?.shouldRetry, false)
+    }
+    
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedImagePresenter, view: ViewSpy) {
+    private func makeSUT(imageTransformer: @escaping (Data) -> AnyImage? = { _ in nil }, file: StaticString = #file, line: UInt = #line) -> (sut: FeedImagePresenter<ViewSpy, AnyImage>, view: ViewSpy) {
         let view = ViewSpy()
-        let sut = FeedImagePresenter(view: view)
+        let sut = FeedImagePresenter(view: view, imageTransformer: imageTransformer)
         trackForMemoryLeaks(view, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, view)
     }
     
+    private var fail: (Data) -> AnyImage? {
+        return { _ in nil }
+    }
+    
+    private struct AnyImage: Equatable {}
+    
     private final class ViewSpy: FeedImageView {
-        private(set) var messages = [FeedImageViewModel]()
+        private(set) var messages = [FeedImageViewModel<AnyImage>]()
         
-        func display(_ viewModel: FeedImageViewModel) {
+        func display(_ viewModel: FeedImageViewModel<AnyImage>) {
             messages.append(viewModel)
         }
     }
