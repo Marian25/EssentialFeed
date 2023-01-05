@@ -374,10 +374,10 @@
 			children = (
 				0F25A5F629324C8200D54C16 /* FeedPresenter.swift */,
 				0F3ABBA12967174F00E24794 /* FeedViewModel.swift */,
-				0F3ABB9B2967152F00E24794 /* FeedErrorViewModel.swift */,
 				0F3ABB9F2967172500E24794 /* FeedLoadingViewModel.swift */,
-				0F25A5F42932355800D54C16 /* FeedImageViewModel.swift */,
+				0F3ABB9B2967152F00E24794 /* FeedErrorViewModel.swift */,
 				0F25A5F82932597000D54C16 /* FeedImagePresenter.swift */,
+				0F25A5F42932355800D54C16 /* FeedImageViewModel.swift */,
 				0F25A609293294CD00D54C16 /* Feed.strings */,
 			);
 			path = "Feed Presentation";
