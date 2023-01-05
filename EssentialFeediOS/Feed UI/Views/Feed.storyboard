@@ -38,6 +38,9 @@
                                 <constraint firstAttribute="bottom" secondItem="LHm-Mi-lk0" secondAttribute="bottom" id="bUM-9m-Fel"/>
                                 <constraint firstItem="LHm-Mi-lk0" firstAttribute="top" secondItem="p87-ax-Ole" secondAttribute="top" id="oEY-PF-Mff"/>
                             </constraints>
+                            <connections>
+                                <outlet property="button" destination="LHm-Mi-lk0" id="JY1-PA-7vD"/>
+                            </connections>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="pGT-Qn-vv2">
                             <rect key="frame" x="0.0" y="692" width="414" height="16"/>
