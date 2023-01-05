@@ -17,7 +17,6 @@
 		0F090D36290ACD5C00EC4D86 /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F090D35290ACD5C00EC4D86 /* CoreDataFeedStore.swift */; };
 		0F090D39290ACDA400EC4D86 /* FeedStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F090D37290ACDA400EC4D86 /* FeedStore.xcdatamodeld */; };
 		0F1DD766290A5F9F00D29D70 /* CodableFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1DD765290A5F9F00D29D70 /* CodableFeedStoreTests.swift */; };
-		0F25A5D2293216C000D54C16 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25A5D1293216C000D54C16 /* FeedImageDataLoader.swift */; };
 		0F25A5DB2932178800D54C16 /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25A5DA2932178800D54C16 /* UIImage+TestHelpers.swift */; };
 		0F25A5DD2932182400D54C16 /* UIRefreshControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25A5DC2932182400D54C16 /* UIRefreshControl+TestHelpers.swift */; };
 		0F25A5DF2932186900D54C16 /* UIButton+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25A5DE2932186900D54C16 /* UIButton+TestHelpers.swift */; };
@@ -41,6 +40,7 @@
 		0F2B9A212902E2F600D34A70 /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2B9A202902E2F600D34A70 /* CacheFeedUseCaseTests.swift */; };
 		0F38D0FF2967391400ADA05D /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F38D0FE2967391400ADA05D /* FeedImagePresenter.swift */; };
 		0F38D1012967398800ADA05D /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F38D1002967398800ADA05D /* FeedImageViewModel.swift */; };
+		0F38D10229674FEF00ADA05D /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25A5D1293216C000D54C16 /* FeedImageDataLoader.swift */; };
 		0F3ABB99296712EE00E24794 /* FeedErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3ABB98296712EE00E24794 /* FeedErrorView.swift */; };
 		0F3ABB9E2967158200E24794 /* UIRefreshControl+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3ABB9D2967158200E24794 /* UIRefreshControl+Helpers.swift */; };
 		0F3ABBAC296720A400E24794 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3ABBAB296720A400E24794 /* FeedPresenter.swift */; };
@@ -290,14 +290,6 @@
 			path = "Feed Store Specs";
 			sourceTree = "<group>";
 		};
-		0F25A5D0293216A900D54C16 /* Feed Image Loader */ = {
-			isa = PBXGroup;
-			children = (
-				0F25A5D1293216C000D54C16 /* FeedImageDataLoader.swift */,
-			);
-			path = "Feed Image Loader";
-			sourceTree = "<group>";
-		};
 		0F25A5D3293216D700D54C16 /* Feed UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,7 +487,6 @@
 		0F83C44E29291C8900134C51 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
-				0F25A5D0293216A900D54C16 /* Feed Image Loader */,
 				0F25A5D3293216D700D54C16 /* Feed UI */,
 			);
 			path = EssentialFeediOS;
@@ -530,6 +521,7 @@
 			children = (
 				0FE1DF2E28E74758000EF7E0 /* FeedImage.swift */,
 				0FE1DF3028E747C7000EF7E0 /* FeedLoader.swift */,
+				0F25A5D1293216C000D54C16 /* FeedImageDataLoader.swift */,
 			);
 			path = "Feed Feature";
 			sourceTree = "<group>";
@@ -855,7 +847,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F25A6182932A05400D54C16 /* FeedViewAdapter.swift in Sources */,
-				0F25A5D2293216C000D54C16 /* FeedImageDataLoader.swift in Sources */,
 				0F83C470292944F100134C51 /* UIView+Shimmering.swift in Sources */,
 				0F25A5FF29328A7B00D54C16 /* UITableView+Dequeueing.swift in Sources */,
 				0F25A61029329F4000D54C16 /* MainQueueDispatchDecorator.swift in Sources */,
@@ -906,6 +897,7 @@
 				0F3ABBB12967222800E24794 /* FeedLoadingViewModel.swift in Sources */,
 				0F71CB8F28E8C21E0075261E /* HTTPClient.swift in Sources */,
 				0F5EA423290AF7920036744B /* CoreDataHelpers.swift in Sources */,
+				0F38D10229674FEF00ADA05D /* FeedImageDataLoader.swift in Sources */,
 				0FE1DF3128E747C7000EF7E0 /* FeedLoader.swift in Sources */,
 				0F090D36290ACD5C00EC4D86 /* CoreDataFeedStore.swift in Sources */,
 				0F5EA425290AF80C0036744B /* ManagedCache.swift in Sources */,
