@@ -38,6 +38,14 @@ final class FeedImagePresenter {
                                         isLoading: true,
                                         shouldRetry: false))
     }
+    
+    func didFinishLoadingImageData(with error: Error, for model: FeedImage) {
+        view.display(FeedImageViewModel(description: model.description,
+                                        location: model.location,
+                                        image: nil,
+                                        isLoading: false,
+                                        shouldRetry: true))
+    }
 }
 
 final class FeedImagePresenterTests: XCTestCase {
@@ -60,6 +68,20 @@ final class FeedImagePresenterTests: XCTestCase {
         XCTAssertNil(message?.image)
         XCTAssertEqual(message?.isLoading, true)
         XCTAssertEqual(message?.shouldRetry, false)
+    }
+    
+    func test_didFinishLoadingImageDataWithError_displaysShouldRetry() {
+        let (sut, view) = makeSUT()
+        let model = uniqueImage()
+        
+        sut.didFinishLoadingImageData(with: anyNSError(), for: model)
+        
+        let message = view.messages.first
+        XCTAssertEqual(message?.description, model.description)
+        XCTAssertEqual(message?.location, model.location)
+        XCTAssertNil(message?.image)
+        XCTAssertEqual(message?.isLoading, false)
+        XCTAssertEqual(message?.shouldRetry, true)
     }
     
     // MARK: - Helpers
