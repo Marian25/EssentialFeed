@@ -33,7 +33,7 @@ extension LocalFeedImageDataLoader {
 }
 
 extension LocalFeedImageDataLoader: FeedImageDataLoader {
-    public typealias LoadResult = (FeedImageDataLoader.Result) -> Void
+    public typealias LoadResult = FeedImageDataLoader.Result
     
     public enum LoadError: Swift.Error {
         case failed
@@ -60,7 +60,7 @@ extension LocalFeedImageDataLoader: FeedImageDataLoader {
         }
     }
     
-    public func loadImageData(from url: URL, completion: @escaping LoadResult) -> FeedImageDataLoaderTask {
+    public func loadImageData(from url: URL, completion: @escaping (LoadResult) -> Void) -> FeedImageDataLoaderTask {
         let task = LoadImageDataTask(completion)
         store.retrieve(dataForURL: url) { [weak self] result in
             guard self != nil else { return }
