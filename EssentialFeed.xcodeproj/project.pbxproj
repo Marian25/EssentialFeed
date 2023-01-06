@@ -93,6 +93,7 @@
 		0FF4767C29680BA900C741BD /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4767B29680BA900C741BD /* HTTPClientSpy.swift */; };
 		0FF4767E29680C1D00C741BD /* RemoteFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4767D29680C1D00C741BD /* RemoteFeedImageDataLoader.swift */; };
 		0FF47681296810ED00C741BD /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF47680296810ED00C741BD /* HTTPURLResponse+StatusCode.swift */; };
+		0FF47683296811A200C741BD /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF47682296811A200C741BD /* URLProtocolStub.swift */; };
 		0FF87D14293360FD00527054 /* FeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF87D13293360FD00527054 /* FeedPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -232,6 +233,7 @@
 		0FF4767B29680BA900C741BD /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		0FF4767D29680C1D00C741BD /* RemoteFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		0FF47680296810ED00C741BD /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
+		0FF47682296811A200C741BD /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		0FF87D13293360FD00527054 /* FeedPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -592,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				0FF4767B29680BA900C741BD /* HTTPClientSpy.swift */,
+				0FF47682296811A200C741BD /* URLProtocolStub.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -949,6 +952,7 @@
 				0F1DD766290A5F9F00D29D70 /* CodableFeedStoreTests.swift in Sources */,
 				0FA9130C29056D02004DA76B /* FeedCacheTestHelpers.swift in Sources */,
 				0F3ABBB4296724CF00E24794 /* FeedLocalizationTests.swift in Sources */,
+				0FF47683296811A200C741BD /* URLProtocolStub.swift in Sources */,
 				0F3ABBB629672E1600E24794 /* FeedImagePresenterTests.swift in Sources */,
 				0FA9130A290568F8004DA76B /* ValidateFeedCacheUseCaseTests.swift in Sources */,
 				0FE7AA3428E743DD005748B8 /* LoadFeedFromRemoteUseCaseTests.swift in Sources */,
