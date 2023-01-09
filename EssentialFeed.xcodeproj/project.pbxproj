@@ -562,9 +562,9 @@
 		0FE1DF3228E74848000EF7E0 /* Feed Feature */ = {
 			isa = PBXGroup;
 			children = (
-				0F1050B4296C80530099C492 /* FeedCache.swift */,
 				0FE1DF2E28E74758000EF7E0 /* FeedImage.swift */,
 				0FE1DF3028E747C7000EF7E0 /* FeedLoader.swift */,
+				0F1050B4296C80530099C492 /* FeedCache.swift */,
 				0F25A5D1293216C000D54C16 /* FeedImageDataLoader.swift */,
 				0F1050BE296C951A0099C492 /* FeedImageDataCache.swift */,
 			);
