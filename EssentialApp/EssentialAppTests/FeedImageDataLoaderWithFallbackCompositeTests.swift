@@ -92,9 +92,9 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedImageDataLoader, primaryLoader: LoaderStub, fallbackLoader: LoaderStub) {
-        let primaryLoader = LoaderStub()
-        let fallbackLoader = LoaderStub()
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedImageDataLoader, primaryLoader: FeedImageDataLoaderStub, fallbackLoader: FeedImageDataLoaderStub) {
+        let primaryLoader = FeedImageDataLoaderStub()
+        let fallbackLoader = FeedImageDataLoaderStub()
         let sut = FeedImageDataWithFallbackComposite(primary: primaryLoader, fallback: fallbackLoader)
         trackForMemoryLeaks(primaryLoader, file: file, line: line)
         trackForMemoryLeaks(fallbackLoader, file: file, line: line)
@@ -123,38 +123,4 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         action()
         wait(for: [exp], timeout: 1.0)
     }
-    
-    private class LoaderStub: FeedImageDataLoader {
-        private var messages = [(url: URL, completion: (FeedImageDataLoader.Result) -> Void)]()
-        private(set) var cancelledURLs = [URL]()
-        
-        var loadedURLs: [URL] {
-            messages.map { $0.url }
-        }
-        
-        private struct Task: FeedImageDataLoaderTask {
-            let callback: () -> Void
-            
-            func cancel() {
-                callback()
-            }
-        }
-        
-        func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
-            messages.append((url, completion))
-            
-            return Task { [weak self] in
-                self?.cancelledURLs.append(url)
-            }
-        }
-        
-        func complete(with error: Error, at index: Int = 0) {
-            messages[index].completion(.failure(error))
-        }
-        
-        func completeSuccessfully(with data: Data, at index: Int = 0) {
-            messages[index].completion(.success(data))
-        }
-    }
-    
 }
