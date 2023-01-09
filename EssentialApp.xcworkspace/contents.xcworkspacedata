@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/marian.stanciulica/Desktop/EssentialFeed/EssentialFeed/Feed Feature/FeedCache.swift">
-   </FileRef>
-   <FileRef
       location = "group:EssentialApp/EssentialApp.xcodeproj">
    </FileRef>
    <FileRef
