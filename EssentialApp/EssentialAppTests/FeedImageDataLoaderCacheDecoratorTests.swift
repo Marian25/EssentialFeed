@@ -11,6 +11,12 @@ import EssentialApp
 
 final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase, FeedImageDataLoaderTestCase {
     
+    func test_init_doesNotLoadImageData() {
+        let (_, loader) = makeSUT()
+
+        XCTAssertTrue(loader.loadedURLs.isEmpty, "Expected no loaded URLs")
+    }
+    
     func test_loadImageData_deliversDataOnLoaderSuccess() {
         let uniqueData = uniqueData()
         let (sut, loader) = makeSUT()
