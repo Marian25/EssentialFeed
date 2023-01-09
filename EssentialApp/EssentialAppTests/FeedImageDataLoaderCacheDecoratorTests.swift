@@ -10,8 +10,10 @@ import EssentialFeed
 
 class FeedImageDataLoaderCacheDecorator: FeedImageDataLoader {
     private struct TaskWrapper: FeedImageDataLoaderTask {
+        var wrapped: FeedImageDataLoaderTask?
+        
         func cancel() {
-            
+            wrapped?.cancel()
         }
     }
     
@@ -22,8 +24,9 @@ class FeedImageDataLoaderCacheDecorator: FeedImageDataLoader {
     }
     
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoaderCacheDecorator.Result) -> Void) -> FeedImageDataLoaderTask {
-        _ = decoratee.loadImageData(from: url, completion: completion)
-        return TaskWrapper()
+        var task = TaskWrapper()
+        task.wrapped = decoratee.loadImageData(from: url, completion: completion)
+        return task
     }
 }
 
@@ -44,6 +47,16 @@ final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase {
         expect(sut, toCompleteWith: .failure(anyNSError()), when: {
             loader.complete(with: anyNSError())
         })
+    }
+    
+    func test_loadImageData_cancelsTaskOnLoaderTaskCancel() {
+        let url = anyURL()
+        let (sut, loader) = makeSUT()
+
+        let task = sut.loadImageData(from: url) { _ in }
+        task.cancel()
+        
+        XCTAssertEqual(loader.cancelledURLs, [url], "Expected to cancel URL")
     }
     
     // MARK: - Helpers
