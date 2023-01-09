@@ -18,14 +18,24 @@ final class FeedImageDataWithFallbackComposite: FeedImageDataLoader {
     }
     
     private let primary: FeedImageDataLoader
+    private let fallback: FeedImageDataLoader
     
     init(primary: FeedImageDataLoader, fallback: FeedImageDataLoader) {
         self.primary = primary
+        self.fallback = fallback
     }
     
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
         let task = TaskWrapper()
-        task.wrapped = primary.loadImageData(from: url, completion: completion)
+        task.wrapped = primary.loadImageData(from: url) { result in
+            switch result {
+            case .success:
+                completion(result)
+                
+            case .failure:
+                task.wrapped = self.fallback.loadImageData(from: url, completion: completion)
+            }
+        }
         return task
     }
 }
@@ -67,6 +77,27 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         XCTAssertTrue(fallbackLoader.cancelledURLs.isEmpty, "Expected no cancelled URLs from fallback loader")
     }
     
+    func test_loadImageData_deliversFallbackImageOnPrimaryFailure() {
+        let fallbackData = uniqueData()
+        let (sut, _, _) = makeSUT(primaryResult: .failure(anyNSError()), fallbackResult: .success(fallbackData))
+        
+        let exp = expectation(description: "Wait for load completion")
+        
+        _ = sut.loadImageData(from: anyURL()) { receivedResult in
+            switch receivedResult {
+            case let .success(receivedData):
+                XCTAssertEqual(receivedData, fallbackData)
+                
+            case .failure:
+                XCTFail("Expected \(fallbackData), got \(receivedResult) instead")
+            }
+            
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(primaryResult: FeedImageDataLoader.Result, fallbackResult: FeedImageDataLoader.Result, file: StaticString = #file, line: UInt = #line) -> (sut: FeedImageDataLoader, primaryLoader: LoaderStub, fallbackLoader: LoaderStub) {
@@ -83,6 +114,10 @@ final class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         addTeardownBlock { [weak instance] in
             XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
         }
+    }
+    
+    private func anyNSError() -> NSError {
+        return NSError(domain: "any error", code: 0)
     }
     
     private func anyURL() -> URL {
