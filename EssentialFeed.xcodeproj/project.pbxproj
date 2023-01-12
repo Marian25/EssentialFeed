@@ -452,8 +452,6 @@
 				0F71CB8C28E871500075261E /* RemoteFeedLoader.swift */,
 				0F71CB9028E8C25C0075261E /* FeedItemsMapper.swift */,
 				0FA91300290534BE004DA76B /* RemoteFeedItem.swift */,
-				0F9CE3942970670400B2726E /* RemoteImageCommentsLoader.swift */,
-				0F9CE3962970677600B2726E /* ImageCommentsMapper.swift */,
 				0FF4767D29680C1D00C741BD /* RemoteFeedImageDataLoader.swift */,
 			);
 			path = "Feed API";
@@ -463,7 +461,6 @@
 			isa = PBXGroup;
 			children = (
 				0FE7AA3328E743DD005748B8 /* LoadFeedFromRemoteUseCaseTests.swift */,
-				0F9CE3922970651100B2726E /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
 				0F38D1032967533A00ADA05D /* LoadFeedImageDataFromRemoteUseCaseTests.swift */,
 			);
 			path = "Feed API";
@@ -550,6 +547,23 @@
 			path = "Shared API Infra";
 			sourceTree = "<group>";
 		};
+		0F9CE3A0297076F000B2726E /* Image Comments API */ = {
+			isa = PBXGroup;
+			children = (
+				0F9CE3942970670400B2726E /* RemoteImageCommentsLoader.swift */,
+				0F9CE3962970677600B2726E /* ImageCommentsMapper.swift */,
+			);
+			path = "Image Comments API";
+			sourceTree = "<group>";
+		};
+		0F9CE3A12970770B00B2726E /* Image Comments API */ = {
+			isa = PBXGroup;
+			children = (
+				0F9CE3922970651100B2726E /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
+			);
+			path = "Image Comments API";
+			sourceTree = "<group>";
+		};
 		0FA9130629053C53004DA76B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +623,7 @@
 				0FE1DF3228E74848000EF7E0 /* Feed Feature */,
 				0F9CE39829706B9300B2726E /* Image Comments Feature */,
 				0F71CB8B28E8713F0075261E /* Feed API */,
+				0F9CE3A0297076F000B2726E /* Image Comments API */,
 				0F3ABBAA2967208B00E24794 /* Feed Presentation */,
 			);
 			path = EssentialFeed;
@@ -617,6 +632,7 @@
 		0FE7AA3228E743DD005748B8 /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				0F9CE3A12970770B00B2726E /* Image Comments API */,
 				0F6F8C7228E97D9C00714028 /* Helpers */,
 				0F2B9A1F2902E2CD00D34A70 /* Feed Cache */,
 				0F9CE39D2970763100B2726E /* Shared API */,
