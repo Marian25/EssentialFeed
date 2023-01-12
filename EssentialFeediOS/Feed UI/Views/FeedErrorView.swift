@@ -18,7 +18,7 @@ public final class ErrorView: UIView {
     public override func awakeFromNib() {
         super.awakeFromNib()
 
-        button.titleLabel?.text = nil
+        button.setTitle(nil, for: .normal)
         alpha = 0
     }
 
@@ -35,19 +35,20 @@ public final class ErrorView: UIView {
     }
 
     private func showAnimated(_ message: String) {
-        button.titleLabel?.text = message
+        button.setTitle(message, for: .normal)
 
-        UIView.animate(withDuration: 0.25) {
+//        UIView.animate(withDuration: 0.25) {
             self.alpha = 1
-        }
+//        }
     }
 
     @IBAction private func hideMessageAnimated() {
         UIView.animate(
-        withDuration: 0.25,
-        animations: { self.alpha = 0 },
-        completion: { completed in
-            if completed { self.button.titleLabel?.text = nil }
-        })
+            withDuration: 0.25,
+            animations: { self.alpha = 0 },
+            completion: { completed in
+                if completed { self.button.setTitle(nil, for: .normal) }
+            }
+        )
     }
 }
