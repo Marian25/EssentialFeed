@@ -38,6 +38,7 @@
 		0F3ABBB32967224500E24794 /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3ABBB22967224500E24794 /* FeedErrorViewModel.swift */; };
 		0F3ABBB4296724CF00E24794 /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25A60D293295C600D54C16 /* FeedLocalizationTests.swift */; };
 		0F3ABBB629672E1600E24794 /* FeedImagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3ABBB529672E1600E24794 /* FeedImagePresenterTests.swift */; };
+		0F3AC7512971D86E00F31B6C /* SharedLocalizationTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3AC7502971D86E00F31B6C /* SharedLocalizationTestHelpers.swift */; };
 		0F44BC172904518300DFCC62 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F44BC162904518300DFCC62 /* LocalFeedLoader.swift */; };
 		0F44BC19290451EC00DFCC62 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F44BC18290451EC00DFCC62 /* FeedStore.swift */; };
 		0F5EA423290AF7920036744B /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EA422290AF7920036744B /* CoreDataHelpers.swift */; };
@@ -184,6 +185,7 @@
 		0F3ABBB02967222800E24794 /* FeedLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoadingViewModel.swift; sourceTree = "<group>"; };
 		0F3ABBB22967224500E24794 /* FeedErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedErrorViewModel.swift; sourceTree = "<group>"; };
 		0F3ABBB529672E1600E24794 /* FeedImagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenterTests.swift; sourceTree = "<group>"; };
+		0F3AC7502971D86E00F31B6C /* SharedLocalizationTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLocalizationTestHelpers.swift; sourceTree = "<group>"; };
 		0F44BC162904518300DFCC62 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		0F44BC18290451EC00DFCC62 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		0F5EA422290AF7920036744B /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 			children = (
 				0F6F8C7328E97DCF00714028 /* XCTestCase+MemoryLeakTracking.swift */,
 				0FA9130D29056D83004DA76B /* SharedTestHelpers.swift */,
+				0F3AC7502971D86E00F31B6C /* SharedLocalizationTestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1014,6 +1017,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F1DD766290A5F9F00D29D70 /* CodableFeedStoreTests.swift in Sources */,
+				0F3AC7512971D86E00F31B6C /* SharedLocalizationTestHelpers.swift in Sources */,
 				0FA9130C29056D02004DA76B /* FeedCacheTestHelpers.swift in Sources */,
 				0F3ABBB4296724CF00E24794 /* FeedLocalizationTests.swift in Sources */,
 				0FF47683296811A200C741BD /* URLProtocolStub.swift in Sources */,
