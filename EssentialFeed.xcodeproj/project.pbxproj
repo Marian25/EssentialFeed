@@ -674,8 +674,8 @@
 		0F98A2022972B21200BFEE5E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0F98A2032972B21E00BFEE5E /* ImageComments.storyboard */,
 				0F98A20A2972B3BE00BFEE5E /* ImageCommentCell.swift */,
+				0F98A2032972B21E00BFEE5E /* ImageComments.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
