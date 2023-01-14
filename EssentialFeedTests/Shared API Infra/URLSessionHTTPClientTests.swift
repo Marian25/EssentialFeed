@@ -86,7 +86,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> HTTPClient {
+    private func makeSUT(file: StaticString = #filePathPath, line: UInt = #line) -> HTTPClient {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [URLProtocolStub.self]
         let session = URLSession(configuration: configuration)
@@ -97,7 +97,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
     
     private func resultValues(_ values: (data: Data?, response: URLResponse?, error: Error?)?,
                               taskHandler: (HTTPClientTask) -> Void = { _ in },
-                              file: StaticString = #filePath,
+                              file: StaticString = #filePathPath,
                               line: UInt = #line) -> (data: Data, response: HTTPURLResponse)? {
         let receivedResult = resultFor(values, taskHandler: taskHandler, file: file, line: line)
         
@@ -112,7 +112,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
     
     private func resultErrorFor(_ values: (data: Data?, response: URLResponse?, error: Error?)? = nil,
                                 taskHandler: (HTTPClientTask) -> Void = { _ in },
-                                file: StaticString = #filePath,
+                                file: StaticString = #filePathPath,
                                 line: UInt = #line) -> Error? {
         let receivedResult = resultFor(values, taskHandler: taskHandler, file: file, line: line)
         
@@ -127,7 +127,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
     
     private func resultFor(_ values: (data: Data?, response: URLResponse?, error: Error?)?,
                            taskHandler: (HTTPClientTask) -> Void = { _ in },
-                           file: StaticString = #filePath,
+                           file: StaticString = #filePathPath,
                            line: UInt = #line) -> HTTPClient.Result {
         values.map { URLProtocolStub.stub(data: $0, response: $1, error: $2) }
         
