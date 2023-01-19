@@ -11,6 +11,7 @@
 		0F1050AD296C73B50099C492 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1050AC296C73B50099C492 /* SharedTestHelpers.swift */; };
 		0F1050BB296C8CD90099C492 /* FeedImageDataLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1050BA296C8CD90099C492 /* FeedImageDataLoaderStub.swift */; };
 		0F1050BD296C94870099C492 /* FeedLoaderTestCase+FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1050BC296C94870099C492 /* FeedLoaderTestCase+FeedImageDataLoader.swift */; };
+		0F17E45029793835004C4DE3 /* NullStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F17E44F29793835004C4DE3 /* NullStore.swift */; };
 		0F7756A8296F3E5A004A0364 /* FeedAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7756A7296F3E5A004A0364 /* FeedAcceptanceTests.swift */; };
 		0F7AE8742972FFD600FB7DAD /* CommentsUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7AE8732972FFD600FB7DAD /* CommentsUIIntegrationTests.swift */; };
 		0F7AE876297300D900FB7DAD /* CommentsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7AE875297300D900FB7DAD /* CommentsUIComposer.swift */; };
@@ -70,6 +71,7 @@
 		0F1050AC296C73B50099C492 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		0F1050BA296C8CD90099C492 /* FeedImageDataLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderStub.swift; sourceTree = "<group>"; };
 		0F1050BC296C94870099C492 /* FeedLoaderTestCase+FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedLoaderTestCase+FeedImageDataLoader.swift"; sourceTree = "<group>"; };
+		0F17E44F29793835004C4DE3 /* NullStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullStore.swift; sourceTree = "<group>"; };
 		0F7756A7296F3E5A004A0364 /* FeedAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAcceptanceTests.swift; sourceTree = "<group>"; };
 		0F7AE8732972FFD600FB7DAD /* CommentsUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIIntegrationTests.swift; sourceTree = "<group>"; };
 		0F7AE875297300D900FB7DAD /* CommentsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIComposer.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				0F7E754B2968521F007182D9 /* AppDelegate.swift */,
 				0F7E754D2968521F007182D9 /* SceneDelegate.swift */,
+				0F17E44F29793835004C4DE3 /* NullStore.swift */,
 				0FC45262297042CA00A2A4B8 /* CombineHelpers.swift */,
 				0FE09D19296F3BFD00CFEF6D /* FeedUIComposer.swift */,
 				0F7AE875297300D900FB7DAD /* CommentsUIComposer.swift */,
@@ -299,6 +302,7 @@
 			files = (
 				0FE09D20296F3BFE00CFEF6D /* LoadResourcePresentationAdapter.swift in Sources */,
 				0F7E75502968521F007182D9 /* ViewController.swift in Sources */,
+				0F17E45029793835004C4DE3 /* NullStore.swift in Sources */,
 				0FC45263297042CA00A2A4B8 /* CombineHelpers.swift in Sources */,
 				0FE09D21296F3BFE00CFEF6D /* FeedViewAdapter.swift in Sources */,
 				0F7AE876297300D900FB7DAD /* CommentsUIComposer.swift in Sources */,
